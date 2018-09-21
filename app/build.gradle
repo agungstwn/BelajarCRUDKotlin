@@ -43,11 +43,13 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 
     //helper
     implementation 'com.jakewharton:butterknife:8.8.1'
     kapt 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.squareup:otto:1.3.8'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
 
     //dagger
     implementation 'com.google.dagger:dagger:2.13'
