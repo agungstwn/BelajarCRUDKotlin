@@ -1,4 +1,4 @@
-package com.project.android.democrudrealmkotlin.component
+package com.project.android.democrudrealmkotlin.di
 
 import android.content.Context
 import com.project.android.democrudrealmkotlin.App

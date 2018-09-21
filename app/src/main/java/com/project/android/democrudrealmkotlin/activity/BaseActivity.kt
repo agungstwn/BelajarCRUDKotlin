@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import butterknife.ButterKnife
 import com.project.android.democrudrealmkotlin.App
 import com.project.android.democrudrealmkotlin.R
-import com.project.android.democrudrealmkotlin.component.AppComponent
+import com.project.android.democrudrealmkotlin.di.AppComponent
 
 /**
  * Created by agung on 20/09/18.

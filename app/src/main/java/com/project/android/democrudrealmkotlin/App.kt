@@ -1,8 +1,8 @@
 package com.project.android.democrudrealmkotlin
 
 import android.app.Application
-import com.project.android.democrudrealmkotlin.component.AppComponent
-import com.project.android.democrudrealmkotlin.component.DaggerAppComponent
+import com.project.android.democrudrealmkotlin.di.AppComponent
+import com.project.android.democrudrealmkotlin.di.DaggerAppComponent
 import io.realm.Realm
 
 /**
