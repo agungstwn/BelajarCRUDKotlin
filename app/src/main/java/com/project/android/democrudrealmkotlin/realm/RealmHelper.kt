@@ -39,4 +39,22 @@ class RealmHelper {
     fun findAll() : List<DataModel>{
         return realm.where(DataModel::class.java).findAll()
     }
+
+    //update
+    fun update(id: Long, title: String, content: String){
+        realm.beginTransaction()
+        val book = find(id)
+        book?.title = title
+        book?.content = content
+
+        realm.commitTransaction()
+    }
+
+    //delete
+    fun delete(id: Long){
+        realm.beginTransaction()
+        val result = realm.where(DataModel::class.java!!).equalTo("id", id).findAll()
+        result.deleteAllFromRealm()
+        realm.commitTransaction()
+    }
 }

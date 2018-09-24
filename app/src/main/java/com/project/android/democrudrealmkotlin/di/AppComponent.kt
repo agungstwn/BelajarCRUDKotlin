@@ -1,5 +1,6 @@
 package com.project.android.democrudrealmkotlin.di
 
+import com.project.android.democrudrealmkotlin.activity.AddActivity
 import com.project.android.democrudrealmkotlin.activity.MainActivity
 import com.project.android.democrudrealmkotlin.bus.BusModule
 import com.project.android.democrudrealmkotlin.realm.RealmModule
@@ -11,7 +12,8 @@ import javax.inject.Singleton
  */
 
 @Singleton
-@Component(modules = arrayOf(AppModule::class, BusModule::class, RealmModule::class))
+@Component(modules = arrayOf(AppModule::class, RealmModule::class, BusModule::class))
 interface AppComponent{
     fun inject(activity: MainActivity)
+    fun inject(activity: AddActivity)
 }

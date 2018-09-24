@@ -13,7 +13,6 @@ class RealmModule {
 
     @Provides
     @Singleton
-
     fun provideRealmHelper(): RealmHelper{
         return RealmHelper()
     }
