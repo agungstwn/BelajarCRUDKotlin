@@ -19,9 +19,21 @@
         android:layout_height="wrap_content"
         android:hint="Content"/>
 
-    <Button
-        android:id="@+id/btn_Save"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save"/>
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delete"/>
+        <Button
+            android:id="@+id/btn_save_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save"/>
+    </LinearLayout>
 </LinearLayout>

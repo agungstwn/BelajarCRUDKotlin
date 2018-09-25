@@ -1,18 +1,22 @@
 package com.project.android.democrudrealmkotlin.realm
 
+import android.util.Log
 import com.project.android.democrudrealmkotlin.model.DataModel
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.warn
 
 /**
  * Created by agung on 21/09/18.
  */
 class RealmHelper {
 
+    private val log = AnkoLogger(this.javaClass)
     val realm: Realm by lazy {
         val config = RealmConfiguration.Builder()
                 .name("agung.realm")
-                .schemaVersion(0)
+                .schemaVersion(2)
                 .build()
         Realm.getInstance(config)
     }
@@ -28,6 +32,8 @@ class RealmHelper {
         note.title = title
         note.content = content
         realm.commitTransaction()
+
+        log.warn { "title: " + title }
     }
 
     //find
@@ -48,6 +54,9 @@ class RealmHelper {
         book?.content = content
 
         realm.commitTransaction()
+
+        log.warn { "id : " + id }
+        log.warn {  "title : " + title}
     }
 
     //delete

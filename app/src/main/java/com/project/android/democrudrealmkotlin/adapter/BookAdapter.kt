@@ -9,6 +9,7 @@ import com.project.android.democrudrealmkotlin.R
 import com.project.android.democrudrealmkotlin.model.DataModel
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
+import java.util.*
 
 /**
  * Created by agung on 21/09/18.
@@ -17,15 +18,9 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
 
     var items: List<DataModel> = ArrayList()
 
-    private val clickSubject = PublishSubject.create<DataModel>()
+    val clickSubject = PublishSubject.create<DataModel>()
 
     val clickEvent: Observable<DataModel> = clickSubject
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent?.context)
-                .inflate(R.layout.item_book, parent, false)
-        return MyViewHolder(itemView)
-    }
 
     override fun getItemCount(): Int {
         return items.size
@@ -35,15 +30,21 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.MyViewHolder>() {
         holder?.bind(items[position])
     }
 
-    inner class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
+        val itemView = LayoutInflater.from(parent?.context)
+                .inflate(R.layout.item_book, parent, false)
+        return MyViewHolder(itemView)
+    }
+
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var mTitle: TextView? = null
         var mContent: TextView? = null
 
         init {
-            this.mTitle = itemView?.findViewById<TextView>(R.id.tv_title)
-            this.mContent = itemView?.findViewById<TextView>(R.id.tv_content)
+            this.mTitle = itemView.findViewById<TextView>(R.id.tv_title)
+            this.mContent = itemView.findViewById<TextView>(R.id.tv_content)
 
-            itemView?.setOnClickListener {
+            itemView.setOnClickListener {
                 clickSubject.onNext(items[layoutPosition])
             }
         }

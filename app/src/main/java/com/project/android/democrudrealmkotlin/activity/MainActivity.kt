@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.provider.SyncStateContract
 import android.support.annotation.LayoutRes
+import android.support.v7.widget.CardView
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -51,6 +52,22 @@ class MainActivity : BaseActivity() {
             intent.putExtra(Constants.INTENT_KEY_NOTE_ID, it.id)
             startActivity(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        subscrible?.dispose()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val layoutManager =  LinearLayoutManager(applicationContext)
+        recyclerView.layoutManager = layoutManager
+        recyclerView.itemAnimator = DefaultItemAnimator()
+
+        recyclerView.adapter = adapter
+        adapter.items = realmHelper.findAll()
+        adapter.notifyDataSetChanged()
     }
 
     @OnClick(R.id.fab)
