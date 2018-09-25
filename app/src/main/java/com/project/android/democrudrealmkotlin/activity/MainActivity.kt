@@ -2,9 +2,7 @@ package com.project.android.democrudrealmkotlin.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.provider.SyncStateContract
 import android.support.annotation.LayoutRes
-import android.support.v7.widget.CardView
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -15,7 +13,6 @@ import com.project.android.democrudrealmkotlin.adapter.BookAdapter
 import com.project.android.democrudrealmkotlin.realm.RealmHelper
 import com.project.android.democrudrealmkotlin.utils.Constants
 import com.squareup.otto.Bus
-import com.squareup.otto.Subscribe
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 
